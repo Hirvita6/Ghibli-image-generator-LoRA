@@ -78,3 +78,8 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+## ⚠️ Hardware Requirement
+
+This project requires a GPU with CUDA support for efficient image generation. CPU execution is possible but significantly slower and not recommended for production use.
+
