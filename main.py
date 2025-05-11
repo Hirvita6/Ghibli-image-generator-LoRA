@@ -14,11 +14,11 @@ from huggingface_hub import login
 # Paste your token here (you can generate one at https://huggingface.co/settings/tokens)
 login("HuggingFace_ACCESS_Token")
 
-# ✅ Paths (auto-downloads model from Hugging Face)
+# Paths (auto-downloads model from Hugging Face)
 base_path = "black-forest-labs/FLUX.1-dev"
 lora_path = "./models/Ghibli.safetensors"  # <-- Upload this manually to Kaggle!
 
-# ✅ Load FLUX model
+# Load FLUX model
 pipe = FluxPipeline.from_pretrained(base_path, torch_dtype=torch.bfloat16)
 transformer = FluxTransformer2DModel.from_pretrained(
     base_path, subfolder="transformer", torch_dtype=torch.bfloat16
@@ -30,25 +30,25 @@ pipe.to("cuda")
 set_single_lora(pipe.transformer, lora_path, lora_weights=[1], cond_size=512)
 
 
-# ✅ Prompt (Ghibli trigger words)
+# Prompt (Ghibli trigger words)
 prompt = "Ghibli Studio style, Charming hand-drawn anime-style illustration"
 
-# ✅ Safe settings 
+# Safe settings 
 height = 512
 width = 512
 steps = 25
 guidance_scale = 3.5
 seed = 42
 
-# ✅ Upload Image in Notebook Cell
+# Upload Image in Notebook Cell
 from pathlib import Path
 upload_path = Path("input/img1.jpg")
 
-# ✅ Load user image
+# Load user image
 input_img = Image.open(upload_path).convert("RGB")
 input_img = input_img.resize((width, height))
 
-# ✅ Run pipeline
+# Run pipeline
 generator = torch.Generator(device="cuda").manual_seed(seed)
 result = pipe(
     prompt=prompt,
@@ -62,6 +62,6 @@ result = pipe(
     cond_size=512,
 ).images[0]
 
-# ✅ Show and Save
+# Show and Save
 output_path = "output/ghibli_img1.png"
 result.save(output_path)
