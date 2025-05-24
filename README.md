@@ -27,22 +27,21 @@ This project leverages a Flux model trained with LoRA (Low-Rank Adaptation) to c
 
 ```plaintext
 .
-├── main.py                            # Main entry point file
-├── input/                             # input directory for original images
-│   └── img.jpg                        # Original Image
 ├── models/                            # Folder for model files (.safetensors)
 │   └── Ghibli.safetensors             # Pretrained Ghibli-style model
 ├── output/                            # output ghibli images 
 │   └── ghibli_img.png
+├── input/                             # input directory for original images
+│   └── img.jpg                        # Original Image
+├──src/
+│   ├── layers_cache.py                # Caches transformer layers to speed up inference
+│   ├── lora_helper.py                 # Applies LoRA (Low-Rank Adaptation) to the model
+│   ├── pipeline.py                    # Defines the full image generation pipeline
+│   ├── prompt_helper.py               # Handles and formats prompts for generation
+│   └── transformer_flux.py            # Core Flux-style transformer model architecture
+├── main.py                            # Main entry point file
 ├── requirements.txt                   # Python dependencies
-├── README.md                          # Project documentation
-└──src/
-│   ├── layers_cache.py        # Caches transformer layers to speed up inference
-│   ├── lora_helper.py         # Applies LoRA (Low-Rank Adaptation) to the model
-│   ├── pipeline.py            # Defines the full image generation pipeline
-│   ├── prompt_helper.py       # Handles and formats prompts for generation
-│   └── transformer_flux.py    # Core Flux-style transformer model architecture
-
+└── README.md                          # Project documentation
 ```
 
 ## 🚀 Getting Started
