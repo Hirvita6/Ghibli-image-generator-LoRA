@@ -1,4 +1,4 @@
-# Ghibli Image Transformer 🎨✨
+ # Ghibli Image Transformer 🎨✨
 
 Transform your photos into magical Studio Ghibli-style illustrations using a Flux-based deep learning model with LoRA weights for efficient fine-tuning.
 
@@ -14,12 +14,12 @@ This project leverages a Flux model trained with LoRA (Low-Rank Adaptation) to c
     <th>Ghibli Style</th>
   </tr>
   <tr>
-    <td><img src="input/img1.jpg" width="300"/></td>
-    <td><img src="output/ghibli_img1.png" width="300"/></td>
+    <td><img src="input/img1.jpg" width="300" height="300"/></td>
+    <td><img src="output/ghibli_img1.png" width="300" height="300"/></td>
   </tr>
   <tr>
-    <td><img src="input/img2.jpg" width="300"/></td>
-    <td><img src="output/ghibli_img2.png" width="300"/></td>
+    <td><img src="input/img2.jpg" width="300" height="300"/></td>
+    <td><img src="output/ghibli_img2.png" width="300" height="300"/></td>
   </tr>
 </table>
 
